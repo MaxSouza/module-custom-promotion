@@ -1,0 +1,23 @@
+{
+    "custom_promotion": {
+        "column": {
+            "entity_id": true,
+            "name": true,
+            "discount_percent": true,
+            "category_id": true,
+            "custom_promotion_id": true,
+            "description": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "CUSTOM_PROMOTION_ENTITY_ID": true,
+            "CUSTOM_PROMOTION_NAME": true,
+            "CUSTOM_PROMOTION_CUSTOM_PROMOTION_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CUSTOM_PROMOTION_CATEGORY_ID_CATALOG_CATEGORY_ENTITY_ENTITY_ID": true
+        }
+    }
+}

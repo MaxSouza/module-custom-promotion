@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MaxSouza\CustomPromotion\Api\Data\CustomPromotionInterface"
+                type="MaxSouza\CustomPromotion\Model\CustomPromotion"/>
+    <preference for="MaxSouza\CustomPromotion\Model\CustomPromotion\Command\GetInterface"
+                type="MaxSouza\CustomPromotion\Model\CustomPromotion\Command\Get"/>
+    <preference for="MaxSouza\CustomPromotion\Model\CustomPromotion\Command\DeleteByIdInterface"
+                type="MaxSouza\CustomPromotion\Model\CustomPromotion\Command\DeleteById"/>
+    <preference for="MaxSouza\CustomPromotion\Model\CustomPromotion\Command\SaveInterface"
+                type="MaxSouza\CustomPromotion\Model\CustomPromotion\Command\Save"/>
+    <preference for="MaxSouza\CustomPromotion\Model\CustomPromotion\Command\GetListInterface"
+                type="MaxSouza\CustomPromotion\Model\CustomPromotion\Command\GetList"/>
+    <preference for="MaxSouza\CustomPromotion\Api\CustomPromotionRepositoryInterface"
+                type="MaxSouza\CustomPromotion\Model\CustomPromotionRepository"/>
+    <preference for="MaxSouza\CustomPromotion\Api\Data\CustomPromotionSearchResultsInterface"
+                type="MaxSouza\CustomPromotion\Model\CustomPromotionSearchResults"/>
+
+    <preference for="MaxSouza\CustomPromotion\Model\CustomPromotionValidatorInterface"
+                type="MaxSouza\CustomPromotion\Model\CustomPromotionChain"/>
+
+    <type name="MaxSouza\CustomPromotion\Model\CustomPromotionChain">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="name" xsi:type="object">MaxSouza\CustomPromotion\Model\CustomPromotion\Validator\NameValidator</item>
+                <item name="category" xsi:type="object">MaxSouza\CustomPromotion\Model\CustomPromotion\Validator\CategoryValidator</item>
+                <item name="discount_percent" xsi:type="object">MaxSouza\CustomPromotion\Model\CustomPromotion\Validator\DiscountPercentValidator</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

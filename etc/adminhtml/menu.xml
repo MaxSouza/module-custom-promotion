@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MaxSouza_CustomPromotion::management" sortOrder="100" title="Custom Promotion"
+             module="MaxSouza_CustomPromotion" parent="Magento_SalesRule::promo_quote"
+             resource="MaxSouza_CustomPromotion::management" translate="title"
+             action="custom_promotion/custompromotion/index"/>
+    </menu>
+</config>

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">custom_promotion_listing.custom_promotion_listing_data_source</item>
+            <item name="deps" xsi:type="string">custom_promotion_listing.custom_promotion_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New</label>
+            </button>
+        </buttons>
+        <spinner>custom_promotion_listing_columns</spinner>
+        <deps>
+            <dep>custom_promotion_listing.custom_promotion_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="custom_promotion_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">custom_promotion_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>MaxSouza_CustomPromotion::view</aclResource>
+        <dataProvider class="MaxSouza\CustomPromotion\Ui\DataProvider\CustomPromotionDataProvider"
+                      name="custom_promotion_listing_data_source">
+            <settings>
+                <requestFieldName>custom_promotion_id</requestFieldName>
+                <primaryFieldName>custom_promotion_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="name"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="custom_promotion_listing_columns">
+        <column name="custom_promotion_id" sortOrder="10">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="name" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" sortOrder="30"
+                       class="MaxSouza\CustomPromotion\Ui\Component\Listing\Column\CustomPromotionBlockActions">
+            <settings>
+                <indexField>custom_promotion_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>
