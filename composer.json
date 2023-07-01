@@ -10,7 +10,7 @@
         "roave/security-advisories": "dev-latest"
     },
     "license": [
-        "Open Software License (OSL)"
+        "proprietary"
     ],
     "autoload": {
         "files": [
