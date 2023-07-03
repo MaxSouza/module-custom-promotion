@@ -6,7 +6,7 @@ The custom promotion module enables you to add a new approach to product categor
 
 #### ✓ Install by Composer (recommended)
 ```
-composer require max-souza/module-custom-promotion
+composer require maxsouza/module-custom-promotion
 php bin/magento module:enable
 php bin/magento setup:upgrade
 ```
